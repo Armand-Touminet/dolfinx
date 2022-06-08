@@ -346,7 +346,7 @@ XDMFFile::read_meshtags(const std::shared_ptr<const mesh::Mesh>& mesh,
       entities, io::cells::perm_vtk(cell_type, entities.shape(1)));
 
   std::pair<std::vector<std::int32_t>, std::vector<std::int32_t>>
-      entities_values = xdmf_utils::distribute_entity_data(
+      entities_values = xdmf_utils::distribute_entity_data<std::int32_t>(
           *mesh, mesh::cell_dim(cell_type),
           xtl::span(entities1.data(), entities1.size()), values);
 
